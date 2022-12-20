@@ -1,0 +1,11 @@
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\bin\Debug\KCK.exe.config
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\bin\Debug\KCK.exe
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\bin\Debug\KCK.pdb
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.csproj.AssemblyReference.cache
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.Properties.Resources.resources
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.csproj.GenerateResource.cache
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.csproj.CoreCompileInputs.cache
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.exe
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.pdb
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.Forms.MenuForm.resources
+C:\Users\PC COMPUTER\source\repos\KCK\KCK\obj\Debug\KCK.Forms.Levels.resources
