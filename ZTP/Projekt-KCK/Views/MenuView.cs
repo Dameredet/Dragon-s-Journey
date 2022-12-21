@@ -18,8 +18,8 @@ namespace Projekt_KCK.Views
         void PrintLevels(bool forEditor);
 
         void PrintAskName();
-        void ColorRed(string v);
-        void ColorClear(string v);
+        void ColorRed(string Message);
+        void ColorClear(string Message);
     }
     class MenuView : IMenuView
     {
@@ -72,15 +72,21 @@ namespace Projekt_KCK.Views
 
         public void ColorRed(string Message)
         {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Message.Length / 2)) + "}", Message));
-            Console.ResetColor();
+            Writer writer = new Writer();
+            var color = new ColorComponent();
+            ColorDecoratorRed decorate = new ColorDecoratorRed(color);
+            TextDecoratorSigns decorateadditionaly = new TextDecoratorSigns(decorate);
+
+            writer.WriteCentered(decorateadditionaly, Message);
         }
         public void ColorClear(string Message)
         {
-            Console.ResetColor();
-            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Message.Length / 2)) + "}", Message));
-            Console.ResetColor();
+            Writer writer = new Writer();
+            var color = new  ColorComponent();
+            ColorDecoratorWhite decorate = new ColorDecoratorWhite(color);
+
+            writer.WriteCentered(decorate,Message);
+
         }
         public void Print(bool isFirstTime)
         {
@@ -162,15 +168,15 @@ namespace Projekt_KCK.Views
 
     }
 
-    class GraphicMenuView : IMenuView
+    class DoomAndGloomMenuView : IMenuView
     {
-        private static GraphicMenuView instance;
+        private static DoomAndGloomMenuView instance;
 
-        private GraphicMenuView() { }
+        private DoomAndGloomMenuView() { }
 
-        public static GraphicMenuView GetInstance()
+        public static DoomAndGloomMenuView GetInstance()
         {
-            if (instance == null) instance = new GraphicMenuView();
+            if (instance == null) instance = new DoomAndGloomMenuView();
             return instance;
         }
         public void Print(bool isFirstTime) { }
@@ -187,12 +193,10 @@ namespace Projekt_KCK.Views
 
         public void ColorRed(string v)
         {
-            throw new NotImplementedException();
         }
 
         public void ColorClear(string v)
         {
-            throw new NotImplementedException();
         }
     }
 }

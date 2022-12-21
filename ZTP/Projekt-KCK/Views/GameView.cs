@@ -417,15 +417,15 @@ namespace Projekt_KCK.Views
 
     }
 
-    class GraphicGameView : IGameView
+    class DoomAndGloomGameView : IGameView
     {
-        private static GraphicGameView instance;
+        private static DoomAndGloomGameView instance;
 
-        private GraphicGameView() { }
+        private DoomAndGloomGameView() { }
 
-        public static GraphicGameView GetInstance()
+        public static DoomAndGloomGameView GetInstance()
         {
-            if (instance == null) instance = new GraphicGameView();
+            if (instance == null) instance = new DoomAndGloomGameView();
             return instance;
         }
 

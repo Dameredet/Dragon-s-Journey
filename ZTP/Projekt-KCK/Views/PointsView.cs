@@ -55,7 +55,7 @@ namespace Projekt_KCK.Views
 
     }
 
-    class GraphicPointsView : IPointsView
+    class DoomAndGloomPointsView : IPointsView
     {
         public void ShowPoints(int Finish, int Coins, int BaseBonus, int MovesUsed, int HeartBonus)
         {

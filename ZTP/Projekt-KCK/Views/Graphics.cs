@@ -54,11 +54,11 @@ namespace Projekt_KCK.Views
 
         public void TurnOnGraphicMode()
         {
-            //InitializeGraphicMode();
-            SetGameView(GraphicGameView.GetInstance());
-            SetPointsView(new GraphicPointsView());
-            SetMenuView(GraphicMenuView.GetInstance());
-            SetBestView(new GraphicBestView());
+            //InitializeDoomAndGloomMode();
+            SetGameView(DoomAndGloomGameView.GetInstance());
+            SetPointsView(new DoomAndGloomPointsView());
+            SetMenuView(DoomAndGloomMenuView.GetInstance());
+            SetBestView(new DoomAndGloomBestView());
             SetLoadingView(new GraphicLoadingView());
             SetLostView(new GraphicLostView());
         }
@@ -73,7 +73,7 @@ namespace Projekt_KCK.Views
             SetLostView(new LostView());
         }
 
-        private void InitializeGraphicMode()
+        private void InitializeDoomAndGloomMode()
         {
             using Bitmap bmp = new Bitmap(600, 400);
             using Graphics gfx = Graphics.FromImage(bmp);
@@ -137,13 +137,13 @@ namespace Projekt_KCK.Views
         {
             _MenuView.PrintAskName();
         }
-        public void ColorRed(string v)
+        public void ColorRed(string Message)
         {
-            _MenuView.ColorRed(v);
+            _MenuView.ColorRed(Message);
         }
-        public void ColorClear(string v)
+        public void ColorClear(string Message)
         {
-            _MenuView.ColorClear(v);
+            _MenuView.ColorClear(Message);
         }
         public void ShowPoints(int Finish, int Coins, int BaseBonus, int MovesUsed, int HeartBonus)
         {

@@ -65,7 +65,7 @@ namespace Projekt_KCK.Views
 
     }
 
-    class GraphicBestView : IBestView
+    class DoomAndGloomBestView : IBestView
     {
         public void SetSceneForBests()
         {
