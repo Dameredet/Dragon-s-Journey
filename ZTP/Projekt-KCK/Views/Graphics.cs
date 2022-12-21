@@ -8,14 +8,13 @@ namespace Projekt_KCK.Views
 {
     class GraphicMode
     {
-        public ILostView _LostView;
-        public ILoadingView _LoadingView;
-        public IBestView _BestView;
-        public IMenuView _MenuView;
-        public IPointsView _PointsView;
-        public IGameView _GameView;
-
-        public bool graphicstype = false;
+        private ILostView _LostView;
+        private ILoadingView _LoadingView;
+        private IBestView _BestView;
+        private IMenuView _MenuView;
+        private IPointsView _PointsView;
+        private IGameView _GameView;
+        private IGraphicMode _GraphicMode;
 
         private static GraphicMode instance;
 
@@ -27,62 +26,35 @@ namespace Projekt_KCK.Views
             return instance;
         }
 
-        private void SetLostView(ILostView strategy)
+        public void SetGraphicMode(IGraphicMode strategy)
+        {
+            _GraphicMode = strategy;
+        }
+        public void SetLostView(ILostView strategy)
         {
             _LostView = strategy;
         }
-        private void SetLoadingView(ILoadingView strategy)
+        public void SetLoadingView(ILoadingView strategy)
         {
             _LoadingView = strategy;
         }
-        private void SetBestView(IBestView strategy)
+        public void SetBestView(IBestView strategy)
         {
             _BestView = strategy;
         }
-        private void SetMenuView(IMenuView strategy)
+        public void SetMenuView(IMenuView strategy)
         {
             _MenuView = strategy;
         }
-        private void SetPointsView(IPointsView strategy)
+        public void SetPointsView(IPointsView strategy)
         {
             _PointsView = strategy;
         }
-        private void SetGameView(IGameView strategy)
+        public void SetGameView(IGameView strategy)
         {
             _GameView = strategy;
         }
 
-        public void TurnOnGraphicMode()
-        {
-            //InitializeDoomAndGloomMode();
-            SetGameView(DoomAndGloomGameView.GetInstance());
-            SetPointsView(new DoomAndGloomPointsView());
-            SetMenuView(DoomAndGloomMenuView.GetInstance());
-            SetBestView(new DoomAndGloomBestView());
-            SetLoadingView(new GraphicLoadingView());
-            SetLostView(new GraphicLostView());
-        }
-
-        public void TurnOnConsoleMode()
-        {
-            SetGameView(GameView.GetInstance());
-            SetPointsView(new PointsView());
-            SetMenuView(MenuView.GetInstance());
-            SetBestView(new BestView());
-            SetLoadingView(new LoadingView());
-            SetLostView(new LostView());
-        }
-
-        private void InitializeDoomAndGloomMode()
-        {
-            using Bitmap bmp = new Bitmap(600, 400);
-            using Graphics gfx = Graphics.FromImage(bmp);
-
-            gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            gfx.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
-
-            
-        }
 
         public void YouLose()
         {
@@ -137,6 +109,12 @@ namespace Projekt_KCK.Views
         {
             _MenuView.PrintAskName();
         }
+
+        public void SwitchGraphicMode()
+        {
+            _GraphicMode.SwitchGraphicMode();
+        }
+
         public void ColorRed(string Message)
         {
             _MenuView.ColorRed(Message);
@@ -225,5 +203,47 @@ namespace Projekt_KCK.Views
         {
             _GameView.ClearHeart(heartsLeft);
         }
+    }
+
+    interface IGraphicMode
+    {
+        void SwitchGraphicMode();
+    }
+
+    class NormalMode : IGraphicMode
+    {
+        public void SwitchGraphicMode()
+        {
+            var graphics = GraphicMode.GetInstance();
+
+            graphics.SetGameView(DoomAndGloomGameView.GetInstance());
+            graphics.SetPointsView(new DoomAndGloomPointsView());
+            graphics.SetMenuView(DoomAndGloomMenuView.GetInstance());
+            graphics.SetBestView(new DoomAndGloomBestView());
+            graphics.SetLoadingView(new GraphicLoadingView());
+            graphics.SetLostView(new GraphicLostView());
+
+            graphics.SetGraphicMode(new DoomAndGloomMode());
+
+        }
+
+    }
+
+    class DoomAndGloomMode : IGraphicMode
+    {
+       public void SwitchGraphicMode()
+        {
+            var graphics = GraphicMode.GetInstance();
+
+            graphics.SetGameView(GameView.GetInstance());
+            graphics.SetPointsView(new PointsView());
+            graphics.SetMenuView(MenuView.GetInstance());
+            graphics.SetBestView(new BestView());
+            graphics.SetLoadingView(new LoadingView());
+            graphics.SetLostView(new LostView());
+
+            graphics.SetGraphicMode(new NormalMode());
+        }
+
     }
 }

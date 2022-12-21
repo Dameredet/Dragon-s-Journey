@@ -73,7 +73,7 @@ namespace Projekt_KCK.Controllers
                         menuView.SwitchDown(choice);
                     }
                 }
-                else if (ConsoleKey.Enter == playerAction.Key) {   //POPRAWKA - tu zmienić przy projekcie z grafiką
+                else if (ConsoleKey.Enter == playerAction.Key) {
                    
                     MusicManager.ClickMusic();
                     //if (choice != 3) 
@@ -97,7 +97,7 @@ namespace Projekt_KCK.Controllers
                     break;
                 case 103: //TRYB GRAFICZNY
                     var GraphicsManager = GraphicMode.GetInstance();
-                    GraphicsManager.TurnOnGraphicMode();
+                    GraphicsManager.SwitchGraphicMode();
                     Menu();
                     break;
                 case 104:
