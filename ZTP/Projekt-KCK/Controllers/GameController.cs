@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Projekt_KCK.Models;
 using Projekt_KCK.Views;
 
 namespace Projekt_KCK.Controllers
@@ -23,7 +24,7 @@ namespace Projekt_KCK.Controllers
 
                 gc.Tips("BURN!", "tip");
 
-                gameView.DrawDragoRightFire(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gameView.DrawDragoRightFire(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 gc.SetState(new rightFire());
 
                 gc.Sleep(300);
@@ -34,22 +35,22 @@ namespace Projekt_KCK.Controllers
                         switch (i)
                         {
                             case 1:
-                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow - 1);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow - 1);
                                 break;
                             case 2:
-                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow + 1);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow + 1);
                                 break;
                             case 3:
-                                gc.Burn(gc.PlayerPositionBlockColumn + 1, gc.PlayerPositionBlockRow);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn + 1, gc.player.PlayerPositionBlockRow);
                                 break;
                             case 4:
-                                gc.Burn(gc.PlayerPositionBlockColumn - 1, gc.PlayerPositionBlockRow);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn - 1, gc.player.PlayerPositionBlockRow);
                                 break;
                         }
                     }
                 }
                 gc.Sleep(300);
-                gameView.DrawDragonRight(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gameView.DrawDragonRight(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 gc.SetState(new rightCalm());
 
             }
@@ -59,9 +60,9 @@ namespace Projekt_KCK.Controllers
 
                 for (int i = 0; i < 3; i++)
                 {
-                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.ClearBlock(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                     gc.Sleep(300);
-                    gameView.DrawDragonRight(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.DrawDragonRight(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 }
                 gc.HeartLose();
                 gc.Tips("YOU ARE UNDER ATTACK!", "WARNING");
@@ -69,17 +70,17 @@ namespace Projekt_KCK.Controllers
             public void Crash(GameController gc) 
             {
                 var gameView = GraphicMode.GetInstance();
-                gc.CrashCount++;
+                gc.player.CrashCount++;
 
                 for (int i = 0; i < 3; i++)
                 {
-                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.ClearBlock(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                     gc.Sleep(100);
-                    gameView.DrawDragonRight(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.DrawDragonRight(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 }
-                if(gc.CrashCount == 3)
+                if(gc.player.CrashCount == 3)
                 {
-                    gc.CrashCount = 0;
+                    gc.player.CrashCount = 0;
                     gc.HeartLose();
                 }
                 gc.Tips("YOU HIT A WALL!", "WARNING");
@@ -95,7 +96,7 @@ namespace Projekt_KCK.Controllers
 
                 gc.Tips("BURN!", "tip");
 
-                gameView.DrawDragoLeftFire(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gameView.DrawDragoLeftFire(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 gc.SetState(new leftFire());
 
                 gc.Sleep(300);
@@ -106,22 +107,22 @@ namespace Projekt_KCK.Controllers
                         switch (i)
                         {
                             case 1:
-                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow - 1);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow - 1);
                                 break;
                             case 2:
-                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow + 1);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow + 1);
                                 break;
                             case 3:
-                                gc.Burn(gc.PlayerPositionBlockColumn + 1, gc.PlayerPositionBlockRow);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn + 1, gc.player.PlayerPositionBlockRow);
                                 break;
                             case 4:
-                                gc.Burn(gc.PlayerPositionBlockColumn - 1, gc.PlayerPositionBlockRow);
+                                gc.Burn(gc.player.PlayerPositionBlockColumn - 1, gc.player.PlayerPositionBlockRow);
                                 break;
                         }
                     }
                 }
                 gc.Sleep(300);
-                gameView.DrawDragonLeft(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gameView.DrawDragonLeft(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 gc.SetState(new leftCalm());
             }
             public void TakeDamage(GameController gc) 
@@ -130,9 +131,9 @@ namespace Projekt_KCK.Controllers
 
                 for (int i = 0; i < 3; i++)
                 {
-                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.ClearBlock(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                     gc.Sleep(300);
-                    gameView.DrawDragonLeft(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.DrawDragonLeft(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 }
                 gc.HeartLose();
                 gc.Tips("YOU ARE UNDER ATTACK!", "WARNING");
@@ -140,16 +141,16 @@ namespace Projekt_KCK.Controllers
             public void Crash(GameController gc) 
             {
                 var gameView = GraphicMode.GetInstance();
-                gc.CrashCount++;
+                gc.player.CrashCount++;
                 for (int i = 0; i < 3; i++)
                 {
-                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.ClearBlock(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                     gc.Sleep(100);
-                    gameView.DrawDragonLeft(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gameView.DrawDragonLeft(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
                 }
-                if (gc.CrashCount == 3)
+                if (gc.player.CrashCount == 3)
                 {
-                    gc.CrashCount = 0;
+                    gc.player.CrashCount = 0;
                     gc.HeartLose();
                 }
                 gc.Tips("YOU HIT A WALL!", "WARNING");
@@ -176,6 +177,8 @@ namespace Projekt_KCK.Controllers
     {
         private static GameController instance;
         private State _state = new rightCalm();
+        private Player player = new Player();
+
         private GameController() { }
 
         public static GameController GetInstance()
@@ -187,29 +190,19 @@ namespace Projekt_KCK.Controllers
 
         //Game 
         private bool Win = false;
-
-        private int CrashCount = 0;
-
         public int BasePointsBonus = 50;
         public int FinishPoints = 100;
-        public int CollectedCoins = 0;
-        public int NegativeMovePoints = 0;
-        public int HeartsLeft = 2;
 
         // Typ ruchu, ilość powtórzeń
         public int[,] ListOfMoves = new int[19, 2] { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } };
         public int LastMoveIndex = 0;
 
         public int[,] Blocks = new int[20, 10];
-        public int PlayerPositionBlockRow;
-        public int PlayerPositionBlockColumn;
+
 
         //Editor
         public int CurrentWinnableCollumn = 0;
         public int CurrentWinnableRow = 0;
-
-        public int CurrentPlayerCollumn = 0;
-        public int CurrentPlayerRow = 0;
 
         public bool IsWinnable = false;
         public bool IsPlayable = false;
@@ -224,7 +217,7 @@ namespace Projekt_KCK.Controllers
             Win = false;
             _state = new rightCalm();
             LastMoveIndex = 0;
-            HeartsLeft = 2;
+            player.HeartsLeft = 2;
             Array.Clear(ListOfMoves,0,ListOfMoves.Length);
             Array.Clear(Blocks, 0, Blocks.Length);
 
@@ -326,7 +319,7 @@ namespace Projekt_KCK.Controllers
                                 break;
                             case 2:
                                 Tips("YOU GOT A COIN! YAY!", "tips");
-                                CollectedCoins++;
+                                player.CollectedCoins++;
                                 MusicManager.FlyMusic();
                                 MakeAMove(CurrenAction);
                                 MusicManager.CoinMusic();
@@ -336,8 +329,8 @@ namespace Projekt_KCK.Controllers
                                 MakeAMove(CurrenAction);
                                 MusicManager.HeartMusic();
                                 Tips("YOU GOT A HEART! YAY!", "tips");
-                                if (HeartsLeft < 3) HeartsLeft++;
-                                gameView.DrawLives(HeartsLeft);
+                                if (player.HeartsLeft < 3) player.HeartsLeft++;
+                                gameView.DrawLives(player.HeartsLeft);
                                 break;
                             case 6:
                                 MusicManager.FlyMusic();
@@ -373,11 +366,11 @@ namespace Projekt_KCK.Controllers
                 ConsoleKeyInfo playerAction;
                 playerAction = Console.ReadKey();
                 var pointsView = GraphicMode.GetInstance();
-                NegativeMovePoints = CalculateMovesUsed();
-                pointsView.ShowPoints(FinishPoints, CollectedCoins * 5, BasePointsBonus, NegativeMovePoints, HeartsLeft * 100);
+                player.NegativeMovePoints = CalculateMovesUsed();
+                pointsView.ShowPoints(FinishPoints, player.CollectedCoins * 5, BasePointsBonus, player.NegativeMovePoints, player.HeartsLeft * 100);
                 playerAction = Console.ReadKey();
                 var bestController = BestController.GetInstance();
-                bestController.CompareScores(FinishPoints+ CollectedCoins * 5+ BasePointsBonus- NegativeMovePoints+ HeartsLeft * 100);
+                bestController.CompareScores(FinishPoints+ player.CollectedCoins * 5+ BasePointsBonus- player.NegativeMovePoints + player.HeartsLeft * 100);
                 var menuController = MenuController.GetInstance();
                 menuController.Menu();
             }
@@ -396,13 +389,13 @@ namespace Projekt_KCK.Controllers
         private void HeartLose()
         {
             var gameView = GraphicMode.GetInstance();
-            gameView.ClearHeart(HeartsLeft);
-            if (HeartsLeft > 0) HeartsLeft--;
+            gameView.ClearHeart(player.HeartsLeft);
+            if (player.HeartsLeft > 0) player.HeartsLeft--;
             else HowIsTheHeart();
         }
         private void HowIsTheHeart()
         {
-            if(HeartsLeft == 0)
+            if(player.HeartsLeft == 0)
             {
                 Win = false;
                 End();
@@ -413,32 +406,32 @@ namespace Projekt_KCK.Controllers
         {
             var gameView = GraphicMode.GetInstance();
 
-            gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
+            gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
 
             switch (MoveDirection)
             {
                 case 1:
-                    PlayerPositionBlockRow--;
-                    gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
+                    player.PlayerPositionBlockRow--;
+                    gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
+                    gameView.DrawDragonRight(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     SetState(new rightCalm());
                     break;
                 case 2:
-                    PlayerPositionBlockRow++;
-                    gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
+                    player.PlayerPositionBlockRow++;
+                    gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
+                    gameView.DrawDragonLeft(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     SetState(new leftCalm());
                     break;
                 case 3:
-                    PlayerPositionBlockColumn++;
-                    gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
+                    player.PlayerPositionBlockColumn++;
+                    gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
+                    gameView.DrawDragonRight(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     SetState(new rightCalm());
                     break;
                 case 4:
-                    PlayerPositionBlockColumn--;
-                    gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
+                    player.PlayerPositionBlockColumn--;
+                    gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
+                    gameView.DrawDragonLeft(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     SetState(new leftCalm());
                     break;
             }
@@ -455,25 +448,25 @@ namespace Projekt_KCK.Controllers
         }
 
         private int Check(int PlannedMove){
-            int checkingRow = PlayerPositionBlockRow;
-            int checkingColumn = PlayerPositionBlockColumn;
+            int checkingRow = player.PlayerPositionBlockRow;
+            int checkingColumn = player.PlayerPositionBlockColumn;
 
             switch (PlannedMove)
             {
                 case 1:
-                    if (checkingRow > 0) checkingRow = PlayerPositionBlockRow - 1;
+                    if (checkingRow > 0) checkingRow = player.PlayerPositionBlockRow - 1;
                     else return 1;
                     break;
                 case 2:
-                    if (checkingRow < 9) checkingRow = PlayerPositionBlockRow + 1;
+                    if (checkingRow < 9) checkingRow = player.PlayerPositionBlockRow + 1;
                     else return 1;
                     break;
                 case 3:
-                    if(checkingColumn<19)checkingColumn = PlayerPositionBlockColumn + 1;
+                    if(checkingColumn<19)checkingColumn = player.PlayerPositionBlockColumn + 1;
                     else return 1;
                     break;
                 case 4:
-                    if(checkingColumn>0)checkingColumn = PlayerPositionBlockColumn - 1;
+                    if(checkingColumn>0)checkingColumn = player.PlayerPositionBlockColumn - 1;
                     else return 1;
                     break;
             }
@@ -603,8 +596,8 @@ namespace Projekt_KCK.Controllers
                         if(Blocks[j, i] == 3)
                         {
                             IsPlayable = true;
-                            CurrentPlayerCollumn = j;
-                            CurrentPlayerRow = i;
+                            player.CurrentPlayerCollumn = j;
+                            player.CurrentPlayerRow = i;
                         }
                         if (Blocks[j, i] == 6)
                         {
@@ -690,12 +683,12 @@ namespace Projekt_KCK.Controllers
                         }
                         else
                         {
-                            gameView.ClearBlock(CurrentPlayerCollumn, CurrentPlayerRow);
-                            Blocks[CurrentPlayerCollumn, CurrentPlayerRow] = 0;
+                            gameView.ClearBlock(player.CurrentPlayerCollumn, player.CurrentPlayerRow);
+                            Blocks[player.CurrentPlayerCollumn, player.CurrentPlayerRow] = 0;
                         }
 
-                        CurrentPlayerCollumn = CurrentCollumn;
-                        CurrentPlayerRow = CurrentRow;
+                        player.CurrentPlayerCollumn = CurrentCollumn;
+                        player.CurrentPlayerRow = CurrentRow;
                         
                         Blocks[CurrentCollumn, CurrentRow] = 3;
                         DrawWhatsInBlock(CurrentCollumn, CurrentRow);
@@ -815,8 +808,8 @@ namespace Projekt_KCK.Controllers
                     gameView.DrawHuman(collumn, row);
                     break;
                 case 3:
-                    PlayerPositionBlockRow = row;
-                    PlayerPositionBlockColumn = collumn;
+                    player.PlayerPositionBlockRow = row;
+                    player.PlayerPositionBlockColumn = collumn;
                     gameView.DrawDragonRight(collumn, row);
                     break;
                 case 2:
