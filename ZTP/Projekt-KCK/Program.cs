@@ -17,18 +17,16 @@ namespace Projekt_KCK
 
         public static void Main()
         {
-            Console.SetWindowSize(237, 63);
+            Console.SetWindowSize(213, 50);
+            Console.SetBufferSize(237, 63);
             Console.CursorVisible = false;
 
             var GraphicsManager = GraphicMode.GetInstance();
             GraphicsManager.TurnOnConsoleMode();
 
-            
-            
             var menuController = MenuController.GetInstance();
             menuController.LoadLevelNames();
             menuController.Menu();
-            
         }
     }
 }

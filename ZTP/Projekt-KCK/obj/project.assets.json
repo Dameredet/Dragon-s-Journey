@@ -10,10 +10,14 @@
           "Microsoft.Extensions.Options": "3.1.31"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Components/3.1.31": {
@@ -24,10 +28,14 @@
           "Microsoft.JSInterop": "3.1.31"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Components.Analyzers/3.1.31": {
@@ -42,37 +50,53 @@
           "Microsoft.AspNetCore.Components": "3.1.31"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.AspNetCore.Metadata/3.1.31": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.31": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/3.1.31": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Options/3.1.31": {
@@ -82,37 +106,53 @@
           "Microsoft.Extensions.Primitives": "3.1.31"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
+          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
+          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Primitives/3.1.31": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.JSInterop/3.1.31": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {}
+          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {}
+          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Win32.SystemEvents/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {}
+          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {}
+          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -127,10 +167,14 @@
       "PostSharp.Redist/6.10.15": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/PostSharp.dll": {}
+          "lib/netstandard2.0/PostSharp.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/PostSharp.dll": {}
+          "lib/netstandard2.0/PostSharp.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Drawing.Common/6.0.0": {
@@ -139,10 +183,14 @@
           "Microsoft.Win32.SystemEvents": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/System.Drawing.Common.dll": {}
+          "lib/netcoreapp3.1/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.Drawing.Common.dll": {}
+          "lib/netcoreapp3.1/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -164,10 +212,14 @@
           "System.Drawing.Common": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/System.Windows.Extensions.dll": {}
+          "lib/netcoreapp3.1/System.Windows.Extensions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.Windows.Extensions.dll": {}
+          "lib/netcoreapp3.1/System.Windows.Extensions.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp3.1/System.Windows.Extensions.dll": {
@@ -464,19 +516,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC COMPUTER\\.nuget\\packages\\": {}
+    "C:\\Users\\wolos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\Projekt-KCK.csproj",
+      "projectUniqueName": "C:\\Users\\wolos\\source\\repos\\Dragon\\ZTP\\Projekt-KCK\\Projekt-KCK.csproj",
       "projectName": "Projekt-KCK",
-      "projectPath": "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\Projekt-KCK.csproj",
-      "packagesPath": "C:\\Users\\PC COMPUTER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\obj\\",
+      "projectPath": "C:\\Users\\wolos\\source\\repos\\Dragon\\ZTP\\Projekt-KCK\\Projekt-KCK.csproj",
+      "packagesPath": "C:\\Users\\wolos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wolos\\source\\repos\\Dragon\\ZTP\\Projekt-KCK\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PC COMPUTER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wolos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -521,7 +573,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -530,7 +583,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

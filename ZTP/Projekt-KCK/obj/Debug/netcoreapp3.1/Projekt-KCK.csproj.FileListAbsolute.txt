@@ -40,3 +40,45 @@ C:\Users\PC COMPUTER\source\repos\Projekt-KCK\Projekt-KCK\bin\Debug\netcoreapp3.
 C:\Users\PC COMPUTER\source\repos\Projekt-KCK\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\PC COMPUTER\source\repos\Projekt-KCK\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\PC COMPUTER\source\repos\Projekt-KCK\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Projekt-KCK.exe
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\click.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\coin.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\error.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\fire.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\fly.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\heart.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\hitHurt.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\lost.wav
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\TextFilles\LONG RIVER.txt
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\TextFilles\SLOW SERPENT.txt
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Projekt-KCK.deps.json
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Projekt-KCK.runtimeconfig.json
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Projekt-KCK.runtimeconfig.dev.json
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Projekt-KCK.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Projekt-KCK.pdb
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\PostSharp.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.csproj.AssemblyReference.cache
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.AssemblyInfoInputs.cache
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.AssemblyInfo.cs
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.csproj.CoreCompileInputs.cache
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.csproj.CopyComplete
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.dll
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.pdb
+C:\Users\wolos\Source\Repos\Dragon\ZTP\Projekt-KCK\obj\Debug\netcoreapp3.1\Projekt-KCK.genruntimeconfig.cache

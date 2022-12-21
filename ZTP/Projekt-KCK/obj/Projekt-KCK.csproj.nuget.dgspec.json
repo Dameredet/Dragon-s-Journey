@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\Projekt-KCK.csproj": {}
+    "C:\\Users\\wolos\\Source\\Repos\\Dragon\\ZTP\\Projekt-KCK\\Projekt-KCK.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\Projekt-KCK.csproj": {
+    "C:\\Users\\wolos\\Source\\Repos\\Dragon\\ZTP\\Projekt-KCK\\Projekt-KCK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\Projekt-KCK.csproj",
+        "projectUniqueName": "C:\\Users\\wolos\\Source\\Repos\\Dragon\\ZTP\\Projekt-KCK\\Projekt-KCK.csproj",
         "projectName": "Projekt-KCK",
-        "projectPath": "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\Projekt-KCK.csproj",
-        "packagesPath": "C:\\Users\\PC COMPUTER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC COMPUTER\\source\\repos\\Projekt-KCK\\Projekt-KCK\\obj\\",
+        "projectPath": "C:\\Users\\wolos\\Source\\Repos\\Dragon\\ZTP\\Projekt-KCK\\Projekt-KCK.csproj",
+        "packagesPath": "C:\\Users\\wolos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wolos\\Source\\Repos\\Dragon\\ZTP\\Projekt-KCK\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC COMPUTER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wolos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +59,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -68,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
