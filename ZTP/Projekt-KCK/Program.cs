@@ -22,7 +22,13 @@ namespace Projekt_KCK
             Console.CursorVisible = false;
 
             var GraphicsManager = GraphicMode.GetInstance();
-            GraphicsManager.TurnOnNormalMode();
+            GraphicsManager.SetGameView(GameView.GetInstance());
+            GraphicsManager.SetPointsView(new PointsView());
+            GraphicsManager.SetMenuView(MenuView.GetInstance());
+            GraphicsManager.SetBestView(new BestView());
+            GraphicsManager.SetLoadingView(new LoadingView());
+            GraphicsManager.SetLostView(new LostView());
+            GraphicsManager.SetGraphicMode(new NormalMode());
 
             var menuController = MenuController.GetInstance();
             menuController.LoadLevelNames();

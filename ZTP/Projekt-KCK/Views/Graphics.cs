@@ -22,7 +22,11 @@ namespace Projekt_KCK.Views
 
         public static GraphicMode GetInstance()
         {
-            if (instance == null) instance = new GraphicMode();
+            if (instance == null)
+            {
+                instance = new GraphicMode();
+
+            }
             return instance;
         }
 
