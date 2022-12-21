@@ -6,10 +6,176 @@ using Projekt_KCK.Views;
 
 namespace Projekt_KCK.Controllers
 {
-    public class GameController
+    public partial class GameController
+    {
+        private interface State
+        {
+            private void SetState() { }
+            void Fire(GameController gc);
+            void TakeDamage(GameController gc);
+            void Crash(GameController gc);
+        }
+
+        private class rightCalm : State
+        {
+            public void Fire(GameController gc) {
+                var gameView = GraphicMode.GetInstance();
+
+                gc.Tips("BURN!", "tip");
+
+                gameView.DrawDragoRightFire(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gc.SetState(new rightFire());
+
+                gc.Sleep(300);
+                for (int i = 1; i < 5; i++)
+                {
+                    if (gc.Check(i) == 4)
+                    {
+                        switch (i)
+                        {
+                            case 1:
+                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow - 1);
+                                break;
+                            case 2:
+                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow + 1);
+                                break;
+                            case 3:
+                                gc.Burn(gc.PlayerPositionBlockColumn + 1, gc.PlayerPositionBlockRow);
+                                break;
+                            case 4:
+                                gc.Burn(gc.PlayerPositionBlockColumn - 1, gc.PlayerPositionBlockRow);
+                                break;
+                        }
+                    }
+                }
+                gc.Sleep(300);
+                gameView.DrawDragonRight(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gc.SetState(new rightCalm());
+
+            }
+            public void TakeDamage(GameController gc) 
+            {
+                var gameView = GraphicMode.GetInstance();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gc.Sleep(300);
+                    gameView.DrawDragonRight(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                }
+                gc.HeartLose();
+                gc.Tips("YOU ARE UNDER ATTACK!", "WARNING");
+            }
+            public void Crash(GameController gc) 
+            {
+                var gameView = GraphicMode.GetInstance();
+                gc.CrashCount++;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gc.Sleep(100);
+                    gameView.DrawDragonRight(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                }
+                if(gc.CrashCount == 3)
+                {
+                    gc.CrashCount = 0;
+                    gc.HeartLose();
+                }
+                gc.Tips("YOU HIT A WALL!", "WARNING");
+            }
+
+        }
+
+        private class leftCalm : State
+        {
+            public void Fire(GameController gc) 
+            {
+                var gameView = GraphicMode.GetInstance();
+
+                gc.Tips("BURN!", "tip");
+
+                gameView.DrawDragoLeftFire(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gc.SetState(new leftFire());
+
+                gc.Sleep(300);
+                for (int i = 1; i < 5; i++)
+                {
+                    if (gc.Check(i) == 4)
+                    {
+                        switch (i)
+                        {
+                            case 1:
+                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow - 1);
+                                break;
+                            case 2:
+                                gc.Burn(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow + 1);
+                                break;
+                            case 3:
+                                gc.Burn(gc.PlayerPositionBlockColumn + 1, gc.PlayerPositionBlockRow);
+                                break;
+                            case 4:
+                                gc.Burn(gc.PlayerPositionBlockColumn - 1, gc.PlayerPositionBlockRow);
+                                break;
+                        }
+                    }
+                }
+                gc.Sleep(300);
+                gameView.DrawDragonLeft(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                gc.SetState(new leftCalm());
+            }
+            public void TakeDamage(GameController gc) 
+            {
+                var gameView = GraphicMode.GetInstance();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gc.Sleep(300);
+                    gameView.DrawDragonLeft(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                }
+                gc.HeartLose();
+                gc.Tips("YOU ARE UNDER ATTACK!", "WARNING");
+            }
+            public void Crash(GameController gc) 
+            {
+                var gameView = GraphicMode.GetInstance();
+                gc.CrashCount++;
+                for (int i = 0; i < 3; i++)
+                {
+                    gameView.ClearBlock(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                    gc.Sleep(100);
+                    gameView.DrawDragonLeft(gc.PlayerPositionBlockColumn, gc.PlayerPositionBlockRow);
+                }
+                if (gc.CrashCount == 3)
+                {
+                    gc.CrashCount = 0;
+                    gc.HeartLose();
+                }
+                gc.Tips("YOU HIT A WALL!", "WARNING");
+            }
+        }
+
+        private class rightFire : State
+        {
+            public void Fire(GameController gc) { }
+            public void TakeDamage(GameController gc) { }
+            public void Crash(GameController gc) { }
+
+        }
+
+        private class leftFire : State
+        {
+            public void Fire(GameController gc) { }
+            public void TakeDamage(GameController gc) { }
+            public void Crash(GameController gc) { }
+        }
+    }
+
+    public partial class GameController
     {
         private static GameController instance;
-
+        private State _state = new rightCalm();
         private GameController() { }
 
         public static GameController GetInstance()
@@ -38,8 +204,6 @@ namespace Projekt_KCK.Controllers
         public int PlayerPositionBlockRow;
         public int PlayerPositionBlockColumn;
 
-        public string DragonsState = "right-calm";
-
         //Editor
         public int CurrentWinnableCollumn = 0;
         public int CurrentWinnableRow = 0;
@@ -50,11 +214,15 @@ namespace Projekt_KCK.Controllers
         public bool IsWinnable = false;
         public bool IsPlayable = false;
 
+        private void SetState(State state) => _state = state;
+        private void TakeDamage(GameController gameController) => _state.TakeDamage(this);
+        private void Crash(GameController gameController) => _state.Crash(this);
+        private void Fire(GameController gameController) => _state.Fire(this);
 
         public void Game(string levelname)
         {
             Win = false;
-            DragonsState = "right-calm";
+            _state = new rightCalm();
             LastMoveIndex = 0;
             HeartsLeft = 2;
             Array.Clear(ListOfMoves,0,ListOfMoves.Length);
@@ -138,7 +306,6 @@ namespace Projekt_KCK.Controllers
             int CurrenAction = 0;
             int WhatsAhead = 0;
 
-            
                 for (int i = 0; i < 19; i++) {
                 
                     CurrenAction = ListOfMoves[i, 0];
@@ -148,51 +315,49 @@ namespace Projekt_KCK.Controllers
                         gameView.DrawMove(ListOfMoves[i, 0], ListOfMoves[i, 1], i, true);
                         WhatsAhead = Check(CurrenAction);
                         switch (WhatsAhead)
-                            {
-                                case 1:
-                                    MusicManager.CrashMusic();
-                                    Crash();
-                                    break;
-                                case 4:
-                                    MusicManager.HitMusic();
-                                    TakeDamage();
-                                    break;
-                                case 2:
-                                    Tips("YOU GOT A COIN! YAY!", "tips");
-                                    CollectedCoins++;
-                                    MusicManager.FlyMusic();
-                                    MakeAMove(CurrenAction);
-                                    MusicManager.CoinMusic();
-                                    break;
-                                case 5:
-                                    MusicManager.FlyMusic();
-                                    MakeAMove(CurrenAction);
-                                    MusicManager.HeartMusic();
-                                    Tips("YOU GOT A HEART! YAY!", "tips");
-                                    if (HeartsLeft < 3) HeartsLeft++;
-                                    gameView.DrawLives(HeartsLeft);
-                                    break;
-                                case 6:
-                                    MusicManager.FlyMusic();
-                                    MakeAMove(CurrenAction);
-                                    Win = true;
-                                    break;
-                                case 0:
-                                default:
-                                    MusicManager.FlyMusic();
-                                    MakeAMove(CurrenAction);
-                                    break;
-
-                            }
+                        {
+                            case 1:
+                                MusicManager.CrashMusic();
+                                Crash(this);
+                                break;
+                            case 4:
+                                MusicManager.HitMusic();
+                                TakeDamage(this);
+                                break;
+                            case 2:
+                                Tips("YOU GOT A COIN! YAY!", "tips");
+                                CollectedCoins++;
+                                MusicManager.FlyMusic();
+                                MakeAMove(CurrenAction);
+                                MusicManager.CoinMusic();
+                                break;
+                            case 5:
+                                MusicManager.FlyMusic();
+                                MakeAMove(CurrenAction);
+                                MusicManager.HeartMusic();
+                                Tips("YOU GOT A HEART! YAY!", "tips");
+                                if (HeartsLeft < 3) HeartsLeft++;
+                                gameView.DrawLives(HeartsLeft);
+                                break;
+                            case 6:
+                                MusicManager.FlyMusic();
+                                MakeAMove(CurrenAction);
+                                Win = true;
+                                break;
+                            case 0:
+                            default:
+                                MusicManager.FlyMusic();
+                                MakeAMove(CurrenAction);
+                                break;
+                        }
                         gameView.DrawMove(ListOfMoves[i, 0], ListOfMoves[i, 1], i);
                     }
                     }
                     else
                     {
                         MusicManager.FireMusic();
-                        Fire();
+                        Fire(this);
                     }
-
                 }  
         }
 
@@ -215,7 +380,6 @@ namespace Projekt_KCK.Controllers
                 bestController.CompareScores(FinishPoints+ CollectedCoins * 5+ BasePointsBonus- NegativeMovePoints+ HeartsLeft * 100);
                 var menuController = MenuController.GetInstance();
                 menuController.Menu();
-
             }
             else
             {
@@ -229,43 +393,6 @@ namespace Projekt_KCK.Controllers
             }
            
         }
-
-
-        private void TakeDamage()
-        {
-            var gameView = GraphicMode.GetInstance();
-
-            for (int i = 0; i < 3; i++)
-            {
-                gameView.ClearBlock(PlayerPositionBlockColumn,PlayerPositionBlockRow);
-                Sleep(300);
-                if (DragonsState == "right-calm") gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                else gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-            }
-            HeartLose();
-            Tips("YOU ARE UNDER ATTACK!","WARNING");
-        }
-
-        private void Crash()
-        {
-            var gameView = GraphicMode.GetInstance();
-            CrashCount++;
-
-            for (int i = 0; i < 3; i++)
-            {
-                gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                Sleep(100);
-                if (DragonsState == "right-calm") gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                else gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-            }
-            if(CrashCount == 3)
-            {
-                CrashCount = 0;
-                HeartLose();
-            }
-            Tips("YOU HIT A WALL!", "WARNING");
-        }
-
         private void HeartLose()
         {
             var gameView = GraphicMode.GetInstance();
@@ -294,84 +421,32 @@ namespace Projekt_KCK.Controllers
                     PlayerPositionBlockRow--;
                     gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
                     gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    DragonsState = "right-calm";
+                    SetState(new rightCalm());
                     break;
                 case 2:
                     PlayerPositionBlockRow++;
                     gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
                     gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    DragonsState = "left-calm";
+                    SetState(new leftCalm());
                     break;
                 case 3:
                     PlayerPositionBlockColumn++;
                     gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
                     gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    DragonsState = "right-calm";
+                    SetState(new rightCalm());
                     break;
                 case 4:
                     PlayerPositionBlockColumn--;
                     gameView.ClearBlock(PlayerPositionBlockColumn, PlayerPositionBlockRow);
                     gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                    DragonsState = "left-calm";
+                    SetState(new leftCalm());
                     break;
-            }
-        }
-
-        private void Fire()
-        {
-            var gameView = GraphicMode.GetInstance();
-
-            Tips("BURN!","tip");
-
-            if(DragonsState == "left-calm")
-            {
-                gameView.DrawDragoLeftFire(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                DragonsState = "left-fire";
-            }
-            else
-            {
-                gameView.DrawDragoRightFire(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                DragonsState = "right-fire";
-            }
-            Sleep(300);
-            for (int i = 1; i < 5; i++)
-            {
-                if (Check(i) == 4)
-                {
-                    switch (i)
-                    {
-                        case 1:
-                            Burn(PlayerPositionBlockColumn, PlayerPositionBlockRow-1);
-                            break;
-                        case 2:
-                            Burn(PlayerPositionBlockColumn,PlayerPositionBlockRow+1);
-                            break;
-                        case 3:
-                            Burn(PlayerPositionBlockColumn+1, PlayerPositionBlockRow);
-                            break;
-                        case 4:
-                            Burn(PlayerPositionBlockColumn-1,PlayerPositionBlockRow);
-                            break;
-                    }
-                }
-            }
-            Sleep(300);
-            if (DragonsState == "left-fire")
-            {
-                gameView.DrawDragonLeft(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                DragonsState = "left-calm";
-            }
-            else
-            {
-                gameView.DrawDragonRight(PlayerPositionBlockColumn, PlayerPositionBlockRow);
-                DragonsState = "right-calm";
             }
         }
 
         private void Burn(int column, int row)
         {
             var gameView = GraphicMode.GetInstance();
-
             gameView.ClearBlock(column, row);
             gameView.DrawFire(column, row);
             Blocks[column, row] = 0;
@@ -402,7 +477,6 @@ namespace Projekt_KCK.Controllers
                     else return 1;
                     break;
             }
-
             /*
                          * 0 - pusto
                          * 1 - ściana
@@ -487,7 +561,7 @@ namespace Projekt_KCK.Controllers
             }
         }
 
-        private void Tips(string Message, string type)
+        public void Tips(string Message, string type)
         {
             var gameView = GraphicMode.GetInstance();
             gameView.DrawTips(Message,type);
