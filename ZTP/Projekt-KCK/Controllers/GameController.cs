@@ -479,22 +479,7 @@ namespace Projekt_KCK.Controllers
                          * 5 - serduszko
                          * 6 - end
                          */
-            switch (Blocks[checkingColumn,checkingRow])
-            {
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
-                case 4:
-                    return 4;
-                case 5:
-                    return 5;
-                case 6:
-                    return 6;
-                default:
-                    return 0;
-            }
-            
+            return Blocks[checkingColumn,checkingRow];      
         }
 
         private void RemoveMove()
