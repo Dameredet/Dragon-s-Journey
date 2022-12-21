@@ -9,7 +9,7 @@ namespace Projekt_KCK.Controllers
 {
     public partial class GameController
     {
-        private interface State
+        private interface DragonState
         {
             private void SetState() { }
             void Fire(GameController gc);
@@ -17,7 +17,7 @@ namespace Projekt_KCK.Controllers
             void Crash(GameController gc);
         }
 
-        private class rightCalm : State
+        private class DragonRightCalm : DragonState
         {
             public void Fire(GameController gc) {
                 var gameView = GraphicMode.GetInstance();
@@ -25,7 +25,7 @@ namespace Projekt_KCK.Controllers
                 gc.Tips("BURN!", "tip");
 
                 gameView.DrawDragoRightFire(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
-                gc.SetState(new rightFire());
+                gc.SetState(new DragonRightFire());
 
                 gc.Sleep(300);
                 for (int i = 1; i < 5; i++)
@@ -51,7 +51,7 @@ namespace Projekt_KCK.Controllers
                 }
                 gc.Sleep(300);
                 gameView.DrawDragonRight(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
-                gc.SetState(new rightCalm());
+                gc.SetState(new DragonRightCalm());
 
             }
             public void TakeDamage(GameController gc) 
@@ -88,7 +88,7 @@ namespace Projekt_KCK.Controllers
 
         }
 
-        private class leftCalm : State
+        private class DragonLeftCalm : DragonState
         {
             public void Fire(GameController gc) 
             {
@@ -97,7 +97,7 @@ namespace Projekt_KCK.Controllers
                 gc.Tips("BURN!", "tip");
 
                 gameView.DrawDragoLeftFire(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
-                gc.SetState(new leftFire());
+                gc.SetState(new DragonLeftFire());
 
                 gc.Sleep(300);
                 for (int i = 1; i < 5; i++)
@@ -123,7 +123,7 @@ namespace Projekt_KCK.Controllers
                 }
                 gc.Sleep(300);
                 gameView.DrawDragonLeft(gc.player.PlayerPositionBlockColumn, gc.player.PlayerPositionBlockRow);
-                gc.SetState(new leftCalm());
+                gc.SetState(new DragonLeftCalm());
             }
             public void TakeDamage(GameController gc) 
             {
@@ -157,7 +157,7 @@ namespace Projekt_KCK.Controllers
             }
         }
 
-        private class rightFire : State
+        private class DragonRightFire : DragonState
         {
             public void Fire(GameController gc) { }
             public void TakeDamage(GameController gc) { }
@@ -165,7 +165,7 @@ namespace Projekt_KCK.Controllers
 
         }
 
-        private class leftFire : State
+        private class DragonLeftFire : DragonState
         {
             public void Fire(GameController gc) { }
             public void TakeDamage(GameController gc) { }
@@ -176,7 +176,7 @@ namespace Projekt_KCK.Controllers
     public partial class GameController
     {
         private static GameController instance;
-        private State _state = new rightCalm();
+        private DragonState _dragonState = new DragonRightCalm();
         private Player player = new Player();
 
         private GameController() { }
@@ -207,15 +207,15 @@ namespace Projekt_KCK.Controllers
         public bool IsWinnable = false;
         public bool IsPlayable = false;
 
-        private void SetState(State state) => _state = state;
-        private void TakeDamage(GameController gameController) => _state.TakeDamage(this);
-        private void Crash(GameController gameController) => _state.Crash(this);
-        private void Fire(GameController gameController) => _state.Fire(this);
+        private void SetState(DragonState state) => _dragonState = state;
+        private void TakeDamage(GameController gameController) => _dragonState.TakeDamage(this);
+        private void Crash(GameController gameController) => _dragonState.Crash(this);
+        private void Fire(GameController gameController) => _dragonState.Fire(this);
 
         public void Game(string levelname)
         {
             Win = false;
-            _state = new rightCalm();
+            SetState(new DragonRightCalm());
             LastMoveIndex = 0;
             player.HeartsLeft = 2;
             Array.Clear(ListOfMoves,0,ListOfMoves.Length);
@@ -414,25 +414,25 @@ namespace Projekt_KCK.Controllers
                     player.PlayerPositionBlockRow--;
                     gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     gameView.DrawDragonRight(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
-                    SetState(new rightCalm());
+                    SetState(new DragonRightCalm());
                     break;
                 case 2:
                     player.PlayerPositionBlockRow++;
                     gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     gameView.DrawDragonLeft(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
-                    SetState(new leftCalm());
+                    SetState(new DragonLeftCalm());
                     break;
                 case 3:
                     player.PlayerPositionBlockColumn++;
                     gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     gameView.DrawDragonRight(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
-                    SetState(new rightCalm());
+                    SetState(new DragonRightCalm());
                     break;
                 case 4:
                     player.PlayerPositionBlockColumn--;
                     gameView.ClearBlock(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
                     gameView.DrawDragonLeft(player.PlayerPositionBlockColumn, player.PlayerPositionBlockRow);
-                    SetState(new leftCalm());
+                    SetState(new DragonLeftCalm());
                     break;
             }
         }
