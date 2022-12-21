@@ -1,0 +1,284 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Projekt-KCK/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Forms": "3.1.31",
+          "PostSharp.Redist": "6.10.15",
+          "System.Windows.Extensions": "6.0.0"
+        },
+        "runtime": {
+          "Projekt-KCK.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/3.1.31": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "3.1.31",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.31",
+          "Microsoft.Extensions.Options": "3.1.31"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51409"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components/3.1.31": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "3.1.31",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.1.31",
+          "Microsoft.JSInterop": "3.1.31"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51409"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/3.1.31": {},
+      "Microsoft.AspNetCore.Components.Forms/3.1.31": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.31"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51409"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/3.1.31": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51409"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.31": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51401"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.1.31": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51401"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/3.1.31": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.31",
+          "Microsoft.Extensions.Primitives": "3.1.31"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51401"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/3.1.31": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51401"
+          }
+        }
+      },
+      "Microsoft.JSInterop/3.1.31": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "3.1.31.0",
+            "fileVersion": "3.100.3122.51401"
+          }
+        }
+      },
+      "Microsoft.Win32.SystemEvents/6.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "PostSharp.Redist/6.10.15": {
+        "runtime": {
+          "lib/netstandard2.0/PostSharp.dll": {
+            "assemblyVersion": "6.10.15.0",
+            "fileVersion": "6.10.15.0"
+          }
+        }
+      },
+      "System.Drawing.Common/6.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "6.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.Drawing.Common.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          },
+          "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "System.Windows.Extensions/6.0.0": {
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.Windows.Extensions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.1/System.Windows.Extensions.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Projekt-KCK/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Authorization/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J8PdhZ8LahtN4WGK5PbLOE3tT26vx9tmGZTNzOgTrdnk0VhthMzWiOibz4umyWTzxXhPcE/Mw7ARHR3X8vCXGQ==",
+      "path": "microsoft.aspnetcore.authorization/3.1.31",
+      "hashPath": "microsoft.aspnetcore.authorization.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WCkjGx9V6c75Y6XEoj5pWr9/PiPROhR8UA9mN5hp79lE2/ubj9MapQ42+ByLBCvQCaHWEP3lGOxn8StN9hmWMg==",
+      "path": "microsoft.aspnetcore.components/3.1.31",
+      "hashPath": "microsoft.aspnetcore.components.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B1sfrGhQEY5PMeUvpsRCnpBFc/uALWvGTWgSWqDddz86PqP+IsOLpUECt1NuHjTTKTCJvASpkzmfAMCfOFa/pg==",
+      "path": "microsoft.aspnetcore.components.analyzers/3.1.31",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t/ZqzevRp1lz/9jKBozA+ssTyCYue6R4KhwwgG9MSTv4XG2uHlHnEbuC3N0MR2ywYHcqUYAG+58Lj2zcQbMyAQ==",
+      "path": "microsoft.aspnetcore.components.forms/3.1.31",
+      "hashPath": "microsoft.aspnetcore.components.forms.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1YhTFoQjLPt4qRfBgPO7Gfr5h3DsgfQsU6AA/3IeDwfKRF8vI+M59jHhy6cE5fN+u3FDkFhyu34oQJDlA2bcKQ==",
+      "path": "microsoft.aspnetcore.metadata/3.1.31",
+      "hashPath": "microsoft.aspnetcore.metadata.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lE9FCa0Y0g7bf4k+BOwcknj+/vTBED0U5UV/fzc/PWqRsO9wi311PpAbvzoklEE+TTiVxF33iSXFqf0jMSlhdA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.31",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HAcnIEE+IEAJYHytfswpm93Y4WDrbZAIcBGwoyRMehtETxBM+4nk+gBuoalgd861vWUfS3ZtVo25P6s/FyzPVg==",
+      "path": "microsoft.extensions.logging.abstractions/3.1.31",
+      "hashPath": "microsoft.extensions.logging.abstractions.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yoC3tB3rSWL77Ipow+YC7jlM6mWrpIHZ/RMpSDW83VECEijapce3VvmJU52FPia0kmvhV0PRqAvnXBFeMuk7QA==",
+      "path": "microsoft.extensions.options/3.1.31",
+      "hashPath": "microsoft.extensions.options.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ta9FclAg2bt7ay40o8ArAMaHKcyojq0eHzPdvZqe1hr28wGLWMSmqxglx1BGgrvY5H9lYiRrReFHovFYx+dsFQ==",
+      "path": "microsoft.extensions.primitives/3.1.31",
+      "hashPath": "microsoft.extensions.primitives.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/3.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SW2c4OMM624123pXq4btRcEEm/7lOQYk/vZYWVb7ZO2Nt1LS8wYrKXKCtGkpKEtQtwmkaHQReJu19LoLDK8biQ==",
+      "path": "microsoft.jsinterop/3.1.31",
+      "hashPath": "microsoft.jsinterop.3.1.31.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
+      "path": "microsoft.win32.systemevents/6.0.0",
+      "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+    },
+    "PostSharp.Redist/6.10.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZWLeiP7WXqXkPAI99top/ahVsnISYTjk45YUqLlOErdIsLuGmW7otIzTwP0ahOwbJv8761y9uneF1xEn7hRWeQ==",
+      "path": "postsharp.redist/6.10.15",
+      "hashPath": "postsharp.redist.6.10.15.nupkg.sha512"
+    },
+    "System.Drawing.Common/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
+      "path": "system.drawing.common/6.0.0",
+      "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
+    },
+    "System.Windows.Extensions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
+      "path": "system.windows.extensions/6.0.0",
+      "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    }
+  }
+}
