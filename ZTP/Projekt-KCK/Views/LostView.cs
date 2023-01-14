@@ -55,8 +55,11 @@ namespace Projekt_KCK.Views
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+
         public void YouWin()
         {
+
+
             for (int j = 0; j < 63; j++)
             {
                 for (int i = 0; i < 237; i++)
@@ -89,15 +92,53 @@ namespace Projekt_KCK.Views
 
     class GraphicLostView : ILostView
     {
-        
+        protected static void WriteAt(string s, int origCol, int origRow)
+        {
+            try
+            {
+                Console.SetCursorPosition(origCol, origRow);
+                Console.Write(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
+        }
         public void YouLose()
         {
-            
+            for (int j = 0; j < 63; j++)
+            {
+                for (int i = 0; i < 237; i++)
+                {
+                    WriteAt(" ", i, j);
+                }
+            }
+
+
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            string textToEnter = "What a loser xd";
+            WriteAt(textToEnter, ((Console.WindowWidth / 2) - (textToEnter.Length / 2)), 37);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void YouWin()
         {
-            
+            for (int j = 0; j < 63; j++)
+            {
+                for (int i = 0; i < 237; i++)
+                {
+                    WriteAt(" ", i, j);
+                }
+            }
+
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            string textToEnter = "You won. Unexpected.";
+            WriteAt(textToEnter, ((Console.WindowWidth / 2) - (textToEnter.Length / 2)), 37);
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
     }
 }

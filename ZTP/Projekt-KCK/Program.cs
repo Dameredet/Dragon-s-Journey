@@ -17,6 +17,9 @@ namespace Projekt_KCK
 
         public static void Main()
         {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+
             Console.SetWindowSize(213, 50);
             Console.SetBufferSize(237, 63);
             Console.CursorVisible = false;

@@ -50,7 +50,7 @@ namespace Projekt_KCK.Views
         public override void Decorate(string Message)
         {
             Console.ResetColor();
-            base.Decorate("  " + Message + "  ");
+            base.Decorate("        " + Message + "        ");
         }
     }
 
@@ -87,7 +87,7 @@ namespace Projekt_KCK.Views
 
         public override void Decorate(string Message)
         {
-            base.Decorate(Message + ", if you dare");
+            base.Decorate("    >< " + Message + " ><    ");
         }
     }
 

@@ -233,6 +233,8 @@ namespace Projekt_KCK.Views
             WriteAt("   \\_;_/  ", column, row + 3);
             WriteAt("    / \\   ", column, row + 4);
             Console.ForegroundColor = ConsoleColor.White;
+
+            
         }
 
         public void DrawDragonRight(int column, int row, bool fix = true)
@@ -429,98 +431,315 @@ namespace Projekt_KCK.Views
             return instance;
         }
 
+
+        protected static int origRow;
+        protected static int origCol;
+
+
+        protected int[] HeartsPlacement = new int[4] { 0, 0, 15, 30 };
+        protected int[] MovesPlacement = new int[19] { 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60 };
+
+
+        private int AdjustmentRow(int RowNumber)
+        {
+            int RowAdress = RowNumber * 5 + 6;
+            return RowAdress;
+        }
+        private int AdjustmentCollumn(int CollumnNumber)
+        {
+            int CollumnAdress = CollumnNumber * 10;
+            return CollumnAdress;
+        }
+
+        protected static void WriteAt(string s, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(origCol + x, origRow + y);
+                Console.Write(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
+        }
+
         public void DrawCoin(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+            WriteAt("   ____   ", column, row);
+            WriteAt("  / __ \\  ", column, row + 1);
+            WriteAt(" / /  \\ \\ ", column, row + 2);
+            WriteAt(" \\ \\__/ / ", column, row + 3);
+            WriteAt("  \\____/  ", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawDragoLeftFire(int column, int row)
         {
-            throw new NotImplementedException();
+            row = AdjustmentRow(row);
+            column = AdjustmentCollumn(column);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("          ", column, row);
+            WriteAt("          ", column, row + 1);
+            WriteAt(">_~\\._ /\\", column, row + 2);
+            WriteAt("'^^_)\\^\\)", column, row + 3);
+            WriteAt(" _(._).=>", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawDragonLeft(int column, int row)
         {
-            throw new NotImplementedException();
+            row = AdjustmentRow(row);
+            column = AdjustmentCollumn(column);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("        ", column, row);
+            WriteAt("        ", column, row + 1);
+            WriteAt(" __~\\._ /\\", column, row + 2);
+            WriteAt(" '^^_)\\^\\)", column, row + 3);
+            WriteAt("  _(._).=>", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawDragonRight(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("          ", column, row);
+            WriteAt("          ", column, row + 1);
+            WriteAt(" /\\_./~__ ", column, row + 2);
+            WriteAt("(/^/(_^^' ", column, row + 3);
+            WriteAt("<=(_.)_   ", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawDragoRightFire(int column, int row)
         {
-            throw new NotImplementedException();
+            row = AdjustmentRow(row);
+            column = AdjustmentCollumn(column);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("          ", column, row);
+            WriteAt("          ", column, row + 1);
+            WriteAt(" /\\_./~_<", column, row + 2);
+            WriteAt("(/^/(_^^' ", column, row + 3);
+            WriteAt("<=(_.)_  ", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawEnd(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+            WriteAt("          ", column, row);
+            WriteAt(" WELLCOME ", column, row + 1);
+            WriteAt("    TO    ", column, row + 2);
+            WriteAt("   HELL   ", column, row + 3);
+            WriteAt("          ", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
+            DrawSelection(column, row, true, false);
         }
 
         public void DrawFire(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            for (int j = 0; j < 5; j++)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    if (j == 3) Console.ForegroundColor = ConsoleColor.Red;
+                    WriteAt("|", column + i, row + j);
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawHeart(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Red;
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            WriteAt(" .-^-,-^-.", column, row);
+            WriteAt(" (       )", column, row + 1);
+            WriteAt(" \\.     ./", column, row + 2);
+            WriteAt("  \\     / ", column, row + 3);
+            WriteAt("   \\._./  ", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawHuman(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+            WriteAt("     .    ", column, row);
+            WriteAt("    o|    ", column, row + 1);
+            WriteAt("  <7O|=   ", column, row + 2);
+            WriteAt("  (<( }-. ", column, row + 3);
+            WriteAt("  ||//    ", column, row + 4);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void DrawLives(int number)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("    .-.   ", HeartsPlacement[number], 0);
+            WriteAt("   (0.0)  ", HeartsPlacement[number], 1);
+            WriteAt(" '=.|m|.='", HeartsPlacement[number], 2);
+            WriteAt(".='`''``=.", HeartsPlacement[number], 3);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void DrawMove(int movetype, int ammonut, int row, bool InCyan = false)
+        public void DrawMove(int movetype, int ammonut, int row, bool InRed = false)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.White;
+            if (InRed) Console.ForegroundColor = ConsoleColor.Red;
+
+            if (movetype == 1)
+            {
+                WriteAt("█░█ █▀█", 201, MovesPlacement[row]);
+                WriteAt("█▄█ █▀▀", 201, MovesPlacement[row] + 1);
+            }
+            if (movetype == 2)
+            {
+                WriteAt("█▀▄ █▀█ █░█░█ █▄░█", 201, MovesPlacement[row]);
+                WriteAt("█▄▀ █▄█ ▀▄▀▄▀ █░▀█", 201, MovesPlacement[row] + 1);
+            }
+            if (movetype == 3)
+            {
+                WriteAt("█▀█ █ █▀▀ █░█ ▀█▀", 201, MovesPlacement[row]);
+                WriteAt("█▀▄ █ █▄█ █▀█ ░█░", 201, MovesPlacement[row] + 1);
+            }
+            if (movetype == 4)
+            {
+                WriteAt("█░░ █▀▀ █▀▀ ▀█▀", 201, MovesPlacement[row]);
+                WriteAt("█▄▄ ██▄ █▀░ ░█░", 201, MovesPlacement[row] + 1);
+            }
+            if (movetype == 5)
+            {
+                WriteAt("█▀▀ █ █▀█ █▀▀", 201, MovesPlacement[row]);
+                WriteAt("█▀░ █ █▀▄ ██ ", 201, MovesPlacement[row] + 1);
+            }
+
+            WriteAt("x" + ammonut, 230, MovesPlacement[row] + 1);
+
+            WriteAt("----------------------------------", 201, MovesPlacement[row] + 2);
         }
 
         public void DrawSelection(int collumn, int row, bool IsGreen = false, bool AdjustmentNeeded = true)
         {
-            throw new NotImplementedException();
-        }
+            if (AdjustmentNeeded)
+            {
+                row = AdjustmentRow(row);
+                collumn = AdjustmentCollumn(collumn);
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("x--------x", collumn, row);
+            WriteAt("|", collumn, row + 1);
+            WriteAt("|", collumn + 9, row + 1);
+            WriteAt("|", collumn, row + 2);
+            WriteAt("|", collumn + 9, row + 2);
+            WriteAt("|", collumn, row + 3);
+            WriteAt("|", collumn + 9, row + 3);
+            WriteAt("x--------x", collumn, row + 4);
+        
+    }
 
         public void DrawTips(string message, string type)
         {
-            throw new NotImplementedException();
+            //nothing, no tips
         }
 
         public void DrawWall(int column, int row, bool fix = true)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            if (fix == true)
+            {
+                row = AdjustmentRow(row);
+                column = AdjustmentCollumn(column);
+            }
+
+            for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 5; j++)
+                    WriteAt("▒", column + i, row + j);
         }
 
         public void SetUpEditorScene()
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            WriteAt("█▄─▄▄─█▄─▄▄▀█▄─▄█─▄─▄─█─▄▄─█▄─▄▄▀█", 0, 1);
+            WriteAt("██─▄█▀██─██─██─████─███─██─██─▄─▄█", 0, 2);
+            WriteAt("▀▄▄▄▄▄▀▄▄▄▄▀▀▄▄▄▀▀▄▄▄▀▀▄▄▄▄▀▄▄▀▄▄▀", 0, 3);
+
+            WriteAt("INSTRUCTIONS ARE FOR SUCKERS",203, AdjustmentRow(0));
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
 
         public void SetUpScene()
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            WriteAt("████████████████████████████████", 203, 0);
+            WriteAt("█▄─▀█▀─▄█─▄▄─█▄─█─▄█▄─▄▄─█─▄▄▄▄█", 203, 1);
+            WriteAt("██─█▄█─██─██─██▄▀▄███─▄█▀█▄▄▄▄─█", 203, 2);
+            WriteAt("▀▄▄▄▀▄▄▄▀▄▄▄▄▀▀▀▄▀▀▀▄▄▄▄▄▀▄▄▄▄▄▀", 203, 3);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        private void ClearSpace(int StartRow, int StartColumn, int EndRow, int EndColumn)
+        {
+            for (int i = StartColumn; i <= EndColumn; i++)
+            {
+                for (int j = StartRow; j <= EndRow; j++) WriteAt(" ", i, j);
+            }
+        }
+        public void ClearMove(int row)
+        {
+            ClearSpace(MovesPlacement[row], 201, MovesPlacement[row] + 2, 234);
+        }
+        public void ClearHeart(int number)
+        {
+            ClearSpace(0, HeartsPlacement[number], 3, HeartsPlacement[number] + 14);
         }
         public void ClearBlock(int column, int row)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ClearMove(int lastMoveIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ClearHeart(int heartsLeft)
-        {
-            throw new NotImplementedException();
+            row = AdjustmentRow(row);
+            column = AdjustmentCollumn(column);
+            ClearSpace(row, column, row + 4, column + 9);
         }
     }
 }

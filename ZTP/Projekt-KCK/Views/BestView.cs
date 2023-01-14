@@ -67,23 +67,47 @@ namespace Projekt_KCK.Views
 
     class DoomAndGloomBestView : IBestView
     {
+        protected string[] HighscoreName = new string[] { "██╗░░██╗██╗░██████╗░██╗░░██╗░██████╗░█████╗░░█████╗░██████╗░███████╗░██████╗", "██║░░██║██║██╔════╝░██║░░██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝", "███████║██║██║░░██╗░███████║╚█████╗░██║░░╚═╝██║░░██║██████╔╝█████╗░░╚█████╗░", "██╔══██║██║██║░░╚██╗██╔══██║░╚═══██╗██║░░██╗██║░░██║██╔══██╗██╔══╝░░░╚═══██╗", "██║░░██║██║╚██████╔╝██║░░██║██████╔╝╚█████╔╝╚█████╔╝██║░░██║███████╗██████╔╝", "╚═╝░░╚═╝╚═╝░╚═════╝░╚═╝░░╚═╝╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░" };
+        protected int[] ScoresPositions = new int[] { 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28 };
         public void SetSceneForBests()
         {
-             
+            Console.Clear();
+            Console.WriteLine();//1
+
+            PrintHighscore(); //7
+
         }
         public void Print(string name, int score, int where)
         {
- 
+            Console.SetCursorPosition(0, ScoresPositions[where]);
+            if (name == null) name = " ";
+            string Message = name;
+            for (int i = 0; i < (40 - name.Length); i++)
+            {
+                Message += ".";
+            }
+            Message += score.ToString();
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Message.Length / 2)) + "}", Message));
         }
 
         private void PrintHighscore()
         {
-
+            Console.ForegroundColor = ConsoleColor.Red;
+            for (int i = 0; i < 6; i++)
+            {
+                string Message = HighscoreName[i];
+                Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Message.Length / 2)) + "}", Message));
+            }
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void AskForBestName()
         {
-
+            Console.Clear();
+            Console.WriteLine();
+            string Message = "What do we call you now, that you're no longer a loser?";
+            Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (Message.Length / 2)) + "}", Message));
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 20, 4);
         }
 
     }
