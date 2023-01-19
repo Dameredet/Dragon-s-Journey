@@ -41,7 +41,8 @@ namespace Projekt_KCK.Views
 
         private void IntroPlainPrint()
         {
-                Console.SetCursorPosition(0, 0);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(0, 0);
                 Console.WriteLine(GamesName[0]);
 
             Console.SetCursorPosition(0, 0);
@@ -56,7 +57,7 @@ namespace Projekt_KCK.Views
 
         private void IntroAnimationPrint()
         {
-            
+            Console.BackgroundColor = ConsoleColor.Black;
             for (int j = GamesName[0].Length; j > 0; j--)
             {
                 Console.SetCursorPosition(0,0);
@@ -90,6 +91,7 @@ namespace Projekt_KCK.Views
         }
         public void Print(bool isFirstTime)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             if (isFirstTime)
             {
@@ -144,6 +146,7 @@ namespace Projekt_KCK.Views
         
         public void PrintLevels(bool forEditor)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
 
             Console.SetCursorPosition(0,0);
@@ -159,6 +162,7 @@ namespace Projekt_KCK.Views
 
         public void PrintAskName()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             string text = "How do you want to name your level?";
             Console.WriteLine(String.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));

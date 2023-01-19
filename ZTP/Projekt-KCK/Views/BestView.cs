@@ -20,6 +20,7 @@ namespace Projekt_KCK.Views
 
         public void SetSceneForBests()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine();//1
 
@@ -34,6 +35,7 @@ namespace Projekt_KCK.Views
         }
         public void Print(string name, int score, int where)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.SetCursorPosition(0, ScoresPositions[where]);
             if (name == null) name = " ";
             string Message = name;
@@ -47,6 +49,7 @@ namespace Projekt_KCK.Views
 
         private void PrintHighscore()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             for (int i = 0; i < 6; i++)
             {
                 string Message = HighscoreName[i];
@@ -56,6 +59,7 @@ namespace Projekt_KCK.Views
 
         public void AskForBestName()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine();
             string Message = "You got highscore! How do you want to be remembered?";
@@ -71,6 +75,7 @@ namespace Projekt_KCK.Views
         protected int[] ScoresPositions = new int[] { 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28 };
         public void SetSceneForBests()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine();//1
 
@@ -79,6 +84,7 @@ namespace Projekt_KCK.Views
         }
         public void Print(string name, int score, int where)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.SetCursorPosition(0, ScoresPositions[where]);
             if (name == null) name = " ";
             string Message = name;
@@ -92,6 +98,7 @@ namespace Projekt_KCK.Views
 
         private void PrintHighscore()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Red;
             for (int i = 0; i < 6; i++)
             {
@@ -103,6 +110,7 @@ namespace Projekt_KCK.Views
 
         public void AskForBestName()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
             Console.WriteLine();
             string Message = "What do we call you now, that you're no longer a loser?";
