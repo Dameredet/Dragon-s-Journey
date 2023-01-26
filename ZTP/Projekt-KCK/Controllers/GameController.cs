@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using PostSharp.Aspects;
+using PostSharp.Aspects.Advices;
 using Projekt_KCK.Models;
 using Projekt_KCK.Views;
 
@@ -845,5 +848,215 @@ namespace Projekt_KCK.Controllers
             System.Threading.Thread.Sleep(number);
         }
 
+        public void GenerateRandomLevel()
+        {
+            var rnd = new Random();
+            Level level;
+            int random;
+            LevelBuilder builder = new LevelBuilder();
+
+            while(builder.CountFields()!=200)
+            {
+                random = rnd.Next(0,7);
+                switch(random)
+                {
+                    case 0:
+                        builder.BuildAir();
+                        break;
+                    case 1:
+                        builder.BuildWall(); 
+                        break;
+                    case 2:
+                        builder.BuildCoin();
+                        break;
+                    case 3:
+                        builder.BuildPlayer();
+                        break;
+                    case 4:
+                        builder.BuildEnemy();
+                        break;
+                    case 5:
+                        builder.BuildHeart();
+                        break;
+                    case 6:
+                        builder.BuildEnd();
+                        break;
+                }
+            }
+
+            level = builder.GetLevel();
+
+            MyIterator iter = new MyIterator(level);
+
+            string levelname = rnd.Next().ToString();
+            string filePath = ("C:\\DragonsJourney\\" + levelname + ".txt");
+            StreamWriter sw = new StreamWriter(filePath);
+            int counter = 0;
+
+            do
+            {
+                sw.Write(iter.Current().ToString()+ " ");
+                counter++;
+                if(counter % 20 == 0)
+                {
+                    sw.Write("\n");
+                }
+            } while (iter.MoveNext());
+
+            sw.Close();
+
+            MenuController menuController = MenuController.GetInstance();
+
+            string file = ("C:\\DragonsJourney\\levels.txt");
+
+            StreamWriter sw1 = new StreamWriter(file);
+            menuController.LevelsNames[menuController.ActualNumberOfLevels - 2] = levelname;
+            for (int i = 0; i < menuController.ActualNumberOfLevels - 1; i++)
+            {
+                sw1.WriteLine(menuController.LevelsNames[i]);
+            }
+            sw1.Close();
+
+            menuController.Menu();
+        }
+    }
+
+    abstract class Iterator : IEnumerator
+    {
+        object IEnumerator.Current => Current();
+
+        public abstract int Key();
+        public abstract object Current();
+        public abstract bool MoveNext();
+        public abstract void Reset();
+    }
+
+    public abstract class IteratorAggregate :IEnumerable
+    {
+        public abstract IEnumerator GetEnumerator();
+    }
+
+    class MyIterator : Iterator
+    {
+        private Level _level;
+        private int _position = 0;
+        public MyIterator(Level level)
+        {
+            this._level = level;
+        }
+
+        public override object Current()
+        {
+            return this._level.GetItems()[_position];
+        }
+
+        public override int Key()
+        {
+            return this._position;
+        }
+
+        public override bool MoveNext()
+        {
+            int updatedPosition = this._position + 1;
+
+            if (updatedPosition >= 0 && updatedPosition < this._level.GetItems().Count)
+            {
+                this._position = updatedPosition;
+                return true;
+            }
+            else return false;
+        }
+
+        public override void Reset()
+        {
+            this._position = 0;
+        }
+    }
+
+    public class Level : IteratorAggregate
+    {
+        List<int> _collection = new List<int>();
+        public List<int> GetItems()
+        {
+            return _collection;
+        }
+
+        public void AddItem(int item)
+        {
+            this._collection.Add(item);
+        }
+
+        public override IEnumerator GetEnumerator()
+        {
+            return new MyIterator(this);
+        }
+    }
+    
+    public interface IBuilder
+    {
+        void BuildWall();
+        void BuildAir();
+        void BuildPlayer();
+        void BuildEnemy();
+        void BuildHeart();
+        void BuildCoin();
+        void BuildEnd();
+    }
+
+    public class LevelBuilder : IBuilder
+    {
+        private Level level = new Level();
+        public LevelBuilder()
+        {
+            this.Reset();
+        }
+        public void Reset()
+        {
+            this.level = new Level();
+        }
+        public void BuildWall()
+        {
+            level.AddItem(1);
+        }
+        public void BuildAir()
+        {
+            level.AddItem(0);
+        }
+        public void BuildPlayer()
+        {
+            if(!level.GetItems().Contains(3))
+            {
+                level.AddItem(3);
+            }
+        }
+        public void BuildEnemy()
+        {
+            level.AddItem(4);
+        }
+        public void BuildHeart()
+        {
+            level.AddItem(5);
+        }
+        public void BuildCoin()
+        {
+            level.AddItem(2);
+        }
+        public void BuildEnd()
+        {
+            if(!level.GetItems().Contains(6))
+            {
+                level.AddItem(6);
+            }
+        }
+        public int CountFields()
+        {
+            return level.GetItems().Count;
+        }
+        public Level GetLevel()
+        {
+            Level result = level;
+            this.Reset();
+            return result;
+        }
     }
 }

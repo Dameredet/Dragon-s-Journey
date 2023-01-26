@@ -120,9 +120,11 @@ namespace Projekt_KCK.Controllers
             menuView.PrintLevels(forEditor);
 
             if (forEditor) {
-                if (LevelsNames[ActualNumberOfLevels - 1] != "NEW LEVEL")
+                if (LevelsNames[ActualNumberOfLevels - 1] != "NEW LEVEL" && LevelsNames[ActualNumberOfLevels] != "Generate Random")
                 {
                     LevelsNames[ActualNumberOfLevels] = "NEW LEVEL";
+                    ActualNumberOfLevels++;
+                    LevelsNames[ActualNumberOfLevels] = "Generate Random";
                     ActualNumberOfLevels++;
                 }
                 }
@@ -194,7 +196,9 @@ namespace Projekt_KCK.Controllers
                     else
                     {
                         var gameController = GameController.GetInstance();
-                        gameController.Editor(LevelName);
+                        if (LevelName == "Generate Random") gameController.GenerateRandomLevel();
+                        else
+                            gameController.Editor(LevelName);
                     }
                 }
                 else
@@ -221,7 +225,7 @@ namespace Projekt_KCK.Controllers
             gameController.Editor(newlevelname, true);
         }
 
-        private void AddToLevelNames(string newlevelname)
+        public void AddToLevelNames(string newlevelname)
         {
             
                 string file = ("C:\\DragonsJourney\\levels.txt");
